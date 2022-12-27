@@ -11,6 +11,12 @@ import {
 import contactsReducer from './contacts/contactsReducer';
 import logger from 'redux-logger';
 
+// const autPersisConfig = {
+//   key: 'auth',
+//   storage,
+//   whitelist: ['token'],
+// };
+
 export const store = configureStore({
   reducer: { phonebook: contactsReducer },
   middleware: getDefaultMiddleware =>

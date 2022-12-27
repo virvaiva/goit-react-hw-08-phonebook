@@ -5,6 +5,7 @@ axios.defaults.baseURL = 'https://63a04d90e3113e5a5c39ac4c.mockapi.io/';
 
 export const getContacts = state => state.phonebook.contacts;
 export const getFilter = state => state.phonebook.filter;
+export const selectIsLoading = state => state.phonebook.isLoading;
 
 export const getVisibleContacts = state => {
   const contacts = getContacts(state);
