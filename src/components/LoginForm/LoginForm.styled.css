@@ -1,0 +1,63 @@
+.phonebookForm {
+  margin-top: 120px;
+}
+
+.inputBox {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  color: #002f6c;
+}
+
+.label {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.input {
+  font-size: 17px;
+  transition: border 300ms ease;
+}
+
+.input:hover {
+  border: 2px solid rgb(156, 99, 209);
+}
+
+.buttonBox {
+  text-align: center;
+}
+
+.addButton {
+  text-decoration: none;
+  font-family: roboto, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #4f83cc;
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.addButton:hover,
+.addButton:focus {
+  background-color: #002f6c;
+}
+.required {
+  color: #db0000;
+}
+
+.errorMessage {
+  text-align: center;
+  color: red;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 20px;
+}

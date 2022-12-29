@@ -3,8 +3,8 @@ import {
   deleteContacts,
   getVisibleContacts,
   fetchContacts,
-} from 'redux/contacts/contactsSelectors';
-import { ListUl, ListLi, BtnDelete } from './ContactList.styled';
+} from 'redux/phonebook/selectors';
+import css from './ContactsItem.module.css';
 import { MdOutlineContactPhone } from 'react-icons/md';
 import { useEffect } from 'react';
 
@@ -12,20 +12,21 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const onDeleteContact = id => dispatch(deleteContacts(id));
   const contacts = useSelector(getVisibleContacts);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
   return (
-    <ListUl>
+    <ul className={css.contactsList}>
       {contacts.map(({ id, name, phone }) => (
-        <ListLi key={id}>
+        <li key={id}>
           <MdOutlineContactPhone />
           {name}: {phone}
-          <BtnDelete type="button" onClick={() => onDeleteContact(id)}>
+          <button type="button" onClick={() => onDeleteContact(id)}>
             Delete
-          </BtnDelete>
-        </ListLi>
+          </button>
+        </li>
       ))}
-    </ListUl>
+    </ul>
   );
 };

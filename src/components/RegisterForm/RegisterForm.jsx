@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import css from './RegisterForm.styled.css';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -18,25 +19,42 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Username
-        <input type="text" name="name" required />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" required />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          name="password"
-          title="minimum number of characters - seven"
-          required
-        />
-      </label>
-      <button type="submit">Register</button>
-    </form>
+    <section>
+      <form
+        className={css.phonebookForm}
+        onSubmit={handleSubmit}
+        autoComplete="off"
+      >
+        <div className={css.inputBox}>
+          <label className={css.label}>
+            Login<span className={css.required}>*</span>
+          </label>
+          <input className={css.input} type="text" name="name" required />
+        </div>
+        <div className={css.inputBox}>
+          <label className={css.label}>
+            Email<span className={css.required}>*</span>
+          </label>
+          <input className={css.input} type="email" name="email" required />
+        </div>
+        <div className={css.inputBox}>
+          <label className={css.label}>
+            Password<span className={css.required}>*</span>
+          </label>
+          <input
+            className={css.input}
+            type="password"
+            name="password"
+            title="minimum number of characters - seven"
+            required
+          />
+        </div>
+        <div className={css.buttonBox}>
+          <button className={css.addButton} type="submit">
+            Register
+          </button>
+        </div>
+      </form>
+    </section>
   );
 };
