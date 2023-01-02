@@ -1,13 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/contacts/filterSlice';
+import { contactsFilter } from 'redux/contacts/filterSlice';
 import { nanoid } from 'nanoid';
 import { Input, Flex } from '@chakra-ui/react';
 
 export const Filter = () => {
   const dispatch = useDispatch();
+
   const handleFilterChange = event => {
     const { value } = event.target;
-    dispatch(setFilter(value.trim()));
+
+    dispatch(contactsFilter(value));
   };
 
   return (

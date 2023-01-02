@@ -12,5 +12,5 @@ const filterSlise = createSlice({
   },
 });
 
-export const { setFilter } = filterSlise.actions;
+export const { contactsFilter } = filterSlise.actions;
 export const filterReducer = filterSlise.reducer;
