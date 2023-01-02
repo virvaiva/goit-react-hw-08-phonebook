@@ -1,32 +1,77 @@
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { selectLogInError } from 'redux/auth/selectors';
+import { updateErrorLogIn } from 'redux/auth/slice';
 
-export const LoginForm = () => {
+import { Button, Input, Box, Flex, Text } from '@chakra-ui/react';
+
+const LoginForm = () => {
   const dispatch = useDispatch();
+  const error = useSelector(selectLogInError);
+
+  useEffect(() => {
+    dispatch(updateErrorLogIn(error));
+    return () => {
+      dispatch(updateErrorLogIn(null));
+    };
+  });
 
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
+
+    let credentials = {
+      email: form.elements.email.value,
+      password: form.elements.password.value,
+    };
+    console.log(credentials);
+    dispatch(logIn(credentials));
     form.reset();
   };
-
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Box>
+      <Text fontSize={35} textAlign="center" marginBottom={8} backgroundColor>
+        Login Form
+      </Text>
+      <Flex align="center" justify="center" fontSize={21}>
+        <form onSubmit={handleSubmit} autoComplete="off">
+          {error && (
+            <div>
+              Ouch!!! <br></br> You may have made a mistake :( <br></br> Please
+              check the entered data...
+            </div>
+          )}
+          <Box marginBottom={5}>
+            <label>
+              Email<span color="#7c7878">*</span>
+            </label>
+            <Input
+              placeholder="Your Email"
+              type="email"
+              name="email"
+              required
+            />
+          </Box>
+          <Box marginBottom={5}>
+            <label>
+              Password<span color="#7c7878">*</span>
+            </label>
+            <Input
+              placeholder="Your Password"
+              type="password"
+              name="password"
+              title="minimum number of characters - seven"
+              required
+            />
+          </Box>
+
+          <Button width="100%" colorScheme="teal" size="lg" type="submit">
+            Log In
+          </Button>
+        </form>
+      </Flex>
+    </Box>
   );
 };
+export default LoginForm;

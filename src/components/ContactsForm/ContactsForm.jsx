@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 import { nanoid } from 'nanoid';
-import css from './ContactsForm';
+import { Box, Input, Button, Flex } from '@chakra-ui/react';
 
 export default function ContactsForm() {
   const contacts = useSelector(selectContacts);
@@ -17,7 +17,6 @@ export default function ContactsForm() {
       name: name.value,
       number: number.value,
     };
-    // console.log(value);
 
     if (
       contacts.some(
@@ -33,36 +32,37 @@ export default function ContactsForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={css.formWrap}>
-      <div className={css.inputWrap}>
-        <label className={css.label}>Name</label>
-        <input
-          className={css.input}
-          id={nanoid()}
-          //id={nameId}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </div>
-      <div className={css.inputWrap}>
-        <label className={css.label}>Number</label>
-        <input
-          className={css.input}
-          id={nanoid()}
-          //id={numberId}
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </div>
-      <button className={css.button} type="submit">
-        Add contact
-      </button>
-    </form>
+    <Flex m={0} mb={5} fontSize={18}>
+      <Box onSubmit={handleSubmit} width={300}>
+        <Box marginBottom={5}>
+          <label>Name</label>
+          <Input
+            placeholder="Enter your name"
+            size="md"
+            id={nanoid()}
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </Box>
+        <Box marginBottom={5}>
+          <label>Number</label>
+          <Input
+            placeholder="+38 (000) 000 00 00"
+            id={nanoid()}
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </Box>
+        <Button width="100%" colorScheme="teal" size="lg" type="submit">
+          Add contact
+        </Button>
+      </Box>
+    </Flex>
   );
 }

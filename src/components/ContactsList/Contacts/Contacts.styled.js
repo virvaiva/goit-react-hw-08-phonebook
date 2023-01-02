@@ -33,8 +33,8 @@ export const Avatar = styled.div`
   width: 30px;
   margin-left: 10px;
   height: 30px;
-  border-radius: 50%;
-  background-color: ${props => props.color};
+  border-radius: 45%;
+  /* background-color: ${props => props.color}; */
 `;
 
 export const Button = styled.button`

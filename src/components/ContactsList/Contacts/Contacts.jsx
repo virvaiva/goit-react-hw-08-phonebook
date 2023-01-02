@@ -1,17 +1,14 @@
 import { MdDeleteForever } from 'react-icons/md';
 
-import { getRandomHexColor, upFirst } from 'utils/index';
-
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 import {
   ContactWrapper,
   Text,
-  Avatar,
   Button,
-} from 'components/ContactList/Contact/Contacts.styled';
+} from 'components/ContactsList/Contacts/Contacts.styled';
 
-export const Contact = ({ contact: { id, name, number } }) => {
+const Contacts = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteContact(id));
@@ -19,8 +16,6 @@ export const Contact = ({ contact: { id, name, number } }) => {
 
   return (
     <ContactWrapper>
-      <Avatar color={getRandomHexColor()}>{upFirst(name)}</Avatar>
-
       <Text>
         {name}
         <span> {number}</span>
@@ -32,3 +27,4 @@ export const Contact = ({ contact: { id, name, number } }) => {
     </ContactWrapper>
   );
 };
+export default Contacts;

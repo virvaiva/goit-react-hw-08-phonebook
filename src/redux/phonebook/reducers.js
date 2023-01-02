@@ -1,10 +1,6 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { filterChangeAction } from './contactsAction';
-import {
-  fetchContacts,
-  deleteContacts,
-  addContacts,
-} from './contactsSelectors';
+import { filterChangeAction } from './actions';
+import { fetchContacts, deleteContacts, addContacts } from './selectors';
 
 const filter = createReducer('', {
   [filterChangeAction]: (_, { payload }) => payload,

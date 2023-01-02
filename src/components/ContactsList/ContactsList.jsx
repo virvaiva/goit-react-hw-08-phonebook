@@ -1,22 +1,20 @@
 import { useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/contacts/selectors';
 
-import { Contact } from 'components/ContactList/Contact/Contact';
-import {
-  ContactsList,
-  ContactListItem,
-} from 'components/ContactList/ContactList.styled';
+import Contacts from './Contacts/Contacts';
 
-export const ContactList = () => {
-  const visibleСontacts = useSelector(selectVisibleContacts);
+const ContactList = () => {
+  const contacts = useSelector(selectVisibleContacts);
 
   return (
-    <ContactsList>
-      {visibleСontacts.map(contact => (
-        <ContactListItem key={contact.id}>
-          <Contact contact={contact} />
-        </ContactListItem>
+    <ul>
+      {contacts.map(contact => (
+        <li key={contact.id}>
+          <Contacts contact={contact} />
+        </li>
       ))}
-    </ContactsList>
+    </ul>
   );
 };
+
+export default ContactList;
