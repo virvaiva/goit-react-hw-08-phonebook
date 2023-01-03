@@ -11,7 +11,7 @@ export default function ContactsForm() {
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
+  // console.log(contacts);
   const handleChange = event => {
     const { name, value } = event.target;
 
@@ -29,18 +29,18 @@ export default function ContactsForm() {
 
   const handleSubmit = event => {
     event.preventDefault();
-
-    const repeatName = contacts.find(contact => {
-      return contact.name.toLowerCase() === name.toLowerCase();
-    });
-    if (!repeatName) {
-      Notify.success(`${name} is added in contacts`);
-      dispatch(addContact({ name, number }));
-      setNumber('');
-      setName('');
-      return;
-    }
-    Notify.warning(`${name} is already in contacts`);
+    console.log({ name, number });
+    // const repeatName = contacts.find(contact => {
+    //   return contact.name.toLowerCase() === name.toLowerCase();
+    // });
+    // if (!repeatName) {
+    //   Notify.success(`${name} is added in contacts`);
+    //   dispatch({ name, number });
+    //   setNumber('');
+    //   setName('');
+    //   return;
+    // }
+    // Notify.warning(`${name} is already in contacts`);
   };
 
   return (

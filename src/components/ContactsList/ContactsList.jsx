@@ -14,10 +14,10 @@ const ContactList = () => {
   }, [dispatch]);
   return (
     <ul>
-      {contacts.map(({ id, name, phone }) => (
+      {contacts.map(({ id, name, number }) => (
         <li key={id}>
           <MdOutlineContactPhone />
-          {name}: {phone}
+          {name}: {number}
           <button type="button" onClick={() => onDeleteContact(id)}>
             Delete
           </button>
