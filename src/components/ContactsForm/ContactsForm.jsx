@@ -30,22 +30,22 @@ export default function ContactsForm() {
   const handleSubmit = event => {
     event.preventDefault();
     console.log({ name, number });
-    // const repeatName = contacts.find(contact => {
-    //   return contact.name.toLowerCase() === name.toLowerCase();
-    // });
-    // if (!repeatName) {
-    //   Notify.success(`${name} is added in contacts`);
-    //   dispatch({ name, number });
-    //   setNumber('');
-    //   setName('');
-    //   return;
-    // }
-    // Notify.warning(`${name} is already in contacts`);
+    const repeatName = contacts.find(contact => {
+      return contact.name.toLowerCase() === name.toLowerCase();
+    });
+    if (!repeatName) {
+      Notify.success(`${name} is added in contacts`);
+      dispatch(addContact({ name, number }));
+      setNumber('');
+      setName('');
+      return;
+    }
+    Notify.warning(`${name} is already in contacts`);
   };
 
   return (
-    <Box onSubmit={handleSubmit} width={300}>
-      <FormControl marginBottom={5}>
+    <Box width={300}>
+      <FormControl onSubmit={handleSubmit} marginBottom={5}>
         <FormLabel>Name</FormLabel>
         <Input
           placeholder="Enter your name"
