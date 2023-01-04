@@ -2,7 +2,7 @@ import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { Button, Flex, Text, Box } from '@chakra-ui/react';
-import { FiLogIn } from 'react-icons/fi';
+import { FiLogOut } from 'react-icons/fi';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const UserMenu = () => {
       >
         Logout
         <Box ml="5">
-          <FiLogIn size={28} />
+          <FiLogOut size={28} />
         </Box>
       </Button>
     </Flex>
