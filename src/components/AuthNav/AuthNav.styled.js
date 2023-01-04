@@ -5,8 +5,8 @@ export const Nav = styled.div`
 `;
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color: black;
   font-weight: 500;
+  font-size: 18px;
   padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 1), -23px 0 20px -23px rgba(0, 0, 0, 0.8),

@@ -18,7 +18,7 @@ export const UserMenu = () => {
         fontSize="18px"
         colorScheme="red"
         boxShadow="dark-lg"
-        p="6"
+        p="5"
         rounded="md"
         type="button"
         onClick={handleLogOut}

@@ -22,7 +22,7 @@ export const RegisterForm = () => {
   return (
     <Box>
       <Text fontSize={35} textAlign="center" marginBottom={8} backgroundColor>
-        Register Form
+        Registration
       </Text>
       <Flex align="center" justify="center" fontSize={21}>
         <form onSubmit={handleSubmit} autoComplete="off">

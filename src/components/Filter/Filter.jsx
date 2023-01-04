@@ -1,25 +1,24 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { contactsFilter } from 'redux/contacts/filterSlice';
-import { nanoid } from 'nanoid';
-import { Input, Flex } from '@chakra-ui/react';
+import { Input, Flex, Text } from '@chakra-ui/react';
+import { selectFilter } from 'redux/contacts/selectors';
 
 export const Filter = () => {
   const dispatch = useDispatch();
+  const filter = useSelector(selectFilter);
 
   const handleFilterChange = event => {
-    const { value } = event.target;
-
-    dispatch(contactsFilter(value));
+    dispatch(contactsFilter(event.target.value));
   };
 
   return (
-    <Flex align="center" justify="center" flexDirection="column">
-      Find contacts by Name
+    <Flex align="center" justify="center" flexDirection="column" mb={10}>
+      <Text mb={2}>Find contacts by Name</Text>
       <Input
         type="text"
         name="filter"
         placeholder="Search contact"
-        id={nanoid()}
+        value={filter}
         onChange={handleFilterChange}
         width={400}
       />
