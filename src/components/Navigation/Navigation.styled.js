@@ -4,6 +4,9 @@ export const Nav = styled.div`
   margin-right: 10px;
 `;
 export const StyledLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;

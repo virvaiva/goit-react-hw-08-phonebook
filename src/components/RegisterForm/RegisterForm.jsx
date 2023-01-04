@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
 import { Button, Input, Box, Flex, Text } from '@chakra-ui/react';
+import { GiArchiveRegister } from 'react-icons/gi';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,9 @@ export const RegisterForm = () => {
 
           <Button width="100%" colorScheme="teal" size="lg" type="submit">
             Register
+            <Box ml="5">
+              <GiArchiveRegister size={28} />
+            </Box>
           </Button>
         </form>
       </Flex>

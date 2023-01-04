@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import { selectLogInError } from 'redux/auth/selectors';
 import { updateErrorLogIn } from 'redux/auth/slice';
+import { FiLogIn } from 'react-icons/fi';
 
 import { Button, Input, Box, Flex, Text } from '@chakra-ui/react';
 
@@ -68,6 +69,9 @@ const LoginForm = () => {
 
           <Button width="100%" colorScheme="teal" size="lg" type="submit">
             Log In
+            <Box ml="5">
+              <FiLogIn size={28} />
+            </Box>
           </Button>
         </form>
       </Flex>
