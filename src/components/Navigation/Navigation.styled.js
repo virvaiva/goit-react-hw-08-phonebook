@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 export const Nav = styled.div`
-  margin-right: 10px;
+  display: flex;
 `;
+
 export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;

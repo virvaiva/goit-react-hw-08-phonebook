@@ -8,7 +8,7 @@ export const Navigation = () => {
   return (
     <SC.Nav>
       <SC.StyledLink to="/">
-        <AiFillHome size={25} />
+        <AiFillHome size={25} m={0} />
       </SC.StyledLink>
       {isLoggedIn && <SC.StyledLink to="/contacts">Phonebook</SC.StyledLink>}
     </SC.Nav>
