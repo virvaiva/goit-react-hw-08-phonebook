@@ -31,7 +31,7 @@ const LoginForm = () => {
   };
   return (
     <Box>
-      <Text fontSize={35} textAlign="center" marginBottom={8} backgroundColor>
+      <Text fontSize={35} textAlign="center" marginBottom={8}>
         Login Form
       </Text>
       <Flex align="center" justify="center" fontSize={21}>
