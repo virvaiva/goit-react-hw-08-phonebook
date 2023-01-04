@@ -5,6 +5,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import { selectIsLoading } from 'redux/contacts/selectors';
 import Phonebook from 'components/PhoneBook/PhoneBook';
 import ContactList from 'components/ContactsList/ContactsList';
+import { Loader } from 'components/Loader/Loader';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const ContactsPage = () => {
     <div>
       <Phonebook />
       <Filter />
-      {isLoading && <b>Request in progress...</b>}
+      {isLoading && <Loader />}
       <ContactList />
     </div>
   );
